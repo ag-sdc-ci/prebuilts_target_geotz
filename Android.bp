@@ -1,0 +1,71 @@
+package {
+    default_applicable_licenses: ["packages_modules_GeoTZ_license"],
+}
+
+license {
+    name: "packages_modules_GeoTZ_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "legacy_restricted",
+    ],
+    license_text: [
+        "NOTICE",
+        "LICENSE",
+    ],
+}
+
+license {
+    name: "packages_modules_GeoTZ_output_data_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "legacy_restricted",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+prebuilt_apex {
+    name: "com.android.geotz",
+    apex_name: "com.android.geotz",
+    source_apex_name: "com.android.geotz",
+    arch: {
+        x86_64: {
+            src: "com.android.geotz.apex",
+        },
+    },
+    filename: "com.android.geotz.apex",
+    prefer: true,
+    installable: true,
+}
+
+prebuilt_systemserverclasspath_fragment {
+    name: "com.android.geotz-systemserverclasspath-fragment",
+    prefer: true,
+    contents: ["geotz"],
+    apex_available: ["com.android.geotz"],
+}
+
+java_import {
+    name: "geotz",
+    jars: ["javalib/geotz.jar"],
+    apex_available: [
+        "com.android.geotz",
+    ],
+    prefer: true,
+}
+
+prebuilt_etc {
+    name: "apex_tzs2.dat",
+    src: "etc/tzs2.dat",
+    filename: "tzs2.dat",
+    installable: false,
+    prefer: true,
+}
+
+filegroup {
+    name: "tzs2.dat-resources",
+    path: "etc/",
+    srcs: ["etc/tzs2.dat"],
+}

@@ -1,0 +1,5 @@
+shadow prebuilt repo: GeoTZ (target, com.android.geotz)
+  upstream: packages/modules/GeoTZ
+  api-level: 34 (branch 34)
+  blobs: com.android.geotz.apex, javalib/geotz.jar, etc/tzs2.dat
+  date: 2026-10-20
