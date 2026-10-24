@@ -61,7 +61,6 @@ prebuilt_etc {
     src: "etc/tzs2.dat",
     filename: "tzs2.dat",
     installable: false,
-    prefer: true,
 }
 
 filegroup {
